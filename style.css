@@ -4,10 +4,6 @@
   box-sizing: border-box;
 }
 
-:root {
-  --dark: #374151;
-  --darker: ;
-}
 html {
   background-color: rgb(17, 23, 44);
   width: 100%;

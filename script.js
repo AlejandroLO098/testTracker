@@ -1,4 +1,3 @@
-"use strict";
 window.addEventListener("load", () => {
   const form = document.querySelector("#new-todo-form");
   const input = document.querySelector("#list-item-input");
@@ -7,7 +6,7 @@ window.addEventListener("load", () => {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const task = input.value;
+    let task = input.value;
 
     const task_Ele = document.createElement("div");
     task_Ele.classList.add("task");
@@ -18,7 +17,7 @@ window.addEventListener("load", () => {
     task_Ele.appendChild(taskContentEle);
 
     const taskInputEle = document.createElement("input");
-    taskInputEle.classList.add("text");
+    taskInputEle.classList.add("txt");
     taskInputEle.type = "text";
     taskInputEle.value = task;
     taskInputEle.setAttribute("readonly", "readonly");
@@ -30,7 +29,7 @@ window.addEventListener("load", () => {
 
     const editEle = document.createElement("button");
     editEle.classList.add("update");
-    editEle.innerText = "Edit";
+    editEle.innerHTML = "Edit";
 
     const deleteEl = document.createElement("button");
     deleteEl.classList.add("delete");
@@ -46,12 +45,15 @@ window.addEventListener("load", () => {
     input.value = "";
 
     editEle.addEventListener("click", (e) => {
+      console.log(editEle);
       if (editEle.innerHTML.toLowerCase() == "update") {
-        editEle.innerText = "Save";
+        console.log("save is active");
+        editEle.innerHTML = "Save";
         taskInputEle.removeAttribute("readonly");
         taskInputEle.focus();
       } else {
-        editEle.innerText = "Edit";
+        console.log("editing");
+        editEle.innerHTML = "Edit";
         taskInputEle.setAttribute("readonly", "readonly");
       }
     });
